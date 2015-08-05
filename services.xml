@@ -1,0 +1,66 @@
+<service name="LibraryServiceREST" scope="application">
+	<description>
+		RESTful library Web service that receives and responds XML
+	</description>
+	<transports>
+<transport>http</transport>
+</transports>
+<messageReceivers>
+<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+</messageReceivers>
+<parameter name="ServiceClass" locked="false">au.edu.swin.waa.LibraryServiceREST</parameter>
+<parameter name="disableSOAP11">true</parameter>
+<parameter name="disableSOAP12">true</parameter>
+
+<operation name="getBook">
+<parameter name="RESTMethod">GET</parameter>
+<parameter name="RESTLocation">titles</parameter>
+</operation>
+
+<operation name="getStudentDetails">
+<parameter name="RESTMethod">GET</parameter>
+<parameter name="RESTLocation">PIN/{ID}</parameter>
+</operation>
+
+<operation name="getBookDetail">
+<parameter name="RESTMethod">GET</parameter>
+<parameter name="RESTLocation">ID</parameter>
+</operation>
+
+<operation name="addBook">
+<parameter name="RESTMethod">POST</parameter>
+<parameter name="RESTLocation">books</parameter>
+</operation>
+
+<operation name="validateBook">
+<parameter name="RESTMethod">GET</parameter>
+<parameter name="RESTLocation">borrow</parameter>
+</operation>
+
+<operation name="updateBookDetails">
+<parameter name="RESTMethod">PUT</parameter>
+<parameter name="RESTLocation">Book</parameter>
+</operation>
+<operation name="updateStudentDetails">
+<parameter name="RESTMethod">PUT</parameter>
+<parameter name="RESTLocation">Student</parameter>
+</operation>
+
+<operation name="updateBook">
+<parameter name="RESTMethod">PUT</parameter>
+<parameter name="RESTLocation">name</parameter>
+</operation>	
+
+<operation name="getStudentRecord">
+<parameter name="RESTMethod">GET</parameter>
+<parameter name="RESTLocation">record</parameter>
+</operation>	
+
+
+<operation name="updateStudent">
+<parameter name="RESTMethod">PUT</parameter>
+<parameter name="RESTLocation">PIN/{ID}</parameter>
+</operation>	
+</service>
+
